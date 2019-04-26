@@ -6,6 +6,10 @@ export const defaultState = {
     {
         id:"U2",
         name:"Bono"
+    },
+    {
+        id:"U3",
+        name:"Other user"
     }],
     groups:[{
         name:"To Do",
@@ -16,6 +20,11 @@ export const defaultState = {
         name:"Other group",
         id:"G2",
         owner:"U2"
+    },
+    {
+        name:"Other group 3",
+        id:"G3",
+        owner:"U3"
     }],
     tasks:[{
         name:"Do tests",
@@ -27,15 +36,15 @@ export const defaultState = {
     {
         name:"Do other stuff",
         id:"T2",
-        group:"G1",
+        group:"G2",
         owner:"U1",
         isComplete:false
     },
     {
         name:"Another task",
         id:"T3",
-        group:"G2",
-        owner:"U2",
+        group:"G3",
+        owner:"U3",
         isComplete:false
     }],
     comments:[{
@@ -45,21 +54,15 @@ export const defaultState = {
         content:"Great!"
     },
     {
-        owner:"U1",
+        owner:"U2",
         id:"C2",
         task:"T2",
-        content:"Wow!"
+        content:"Wow 2!"
     },
     {
-        owner:"U2",
+        owner:"U3",
         id:"C3",
-        task:"T1",
-        content:"Hey!"
-    },
-    {
-        owner:"U2",
-        id:"C4",
-        task:"T2",
-        content:"Yay!"
+        task:"T3",
+        content:"Hey 3!"
     }]
 }
