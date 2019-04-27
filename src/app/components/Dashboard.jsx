@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ConnectedTaskList } from './TaskList';
 
-export const Dashboard = ({groups}) => (
+const Dashboard = ({groups}) => (
   <div>
     <h2>Dashboard</h2>
     {groups.map(group => (
@@ -12,7 +12,7 @@ export const Dashboard = ({groups}) => (
   </div>
 );
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         groups: state.groups
     }

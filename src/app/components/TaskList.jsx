@@ -13,7 +13,7 @@ export const TaskList = ({tasks, name, id, createNewTask}) => (
           {tasks.map(task => (
             <Link to={`/task/${task.id}`} key={task.id}>
               <div>
-              {task.name}
+              {task.name} -- {task.isComplete ? 'DONE!' : 'not done'}
               </div>
             </Link>
           ))}
