@@ -47,7 +47,7 @@ const mapStateToProps = (state, ownProps) => {
     id,
     task,
     groups,
-    isComplete:task.isComplete
+    isComplete: task.isComplete
   };
 }
 
