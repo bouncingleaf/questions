@@ -10,19 +10,21 @@ const TaskDetail = ({
   isComplete,
   groups,
 
-  setTaskCompletion
+  setTaskCompletion,
+  setTaskGroup,
+  setTaskName
 }) => (
   <div>
     <div>
-    	<input value={task.name} />
+    	<input onChange={setTaskName} value={task.name} />
     </div>
     <div>
       <button onClick={() => setTaskCompletion(id, !isComplete)}>{isComplete ? `Reopen this task` : `Complete this task`}</button>
     </div>
     <div>
-      <select name="" id="">
+      <select onChange={setTaskGroup} value={task.group}>
         {groups.map(group => (
-          <option key={group.id} value={group.id}>{group.name} {group.id}</option>
+          <option key={group.id} value={group.id}>{group.name}</option>
         ))}
       </select>
     </div>
@@ -52,8 +54,14 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const id = ownProps.match.params.id;
   return {
-    setTaskCompletion(id,isComplete) {
+    setTaskCompletion(id, isComplete) {
       dispatch(mutations.setTaskCompletion(id, isComplete));
+    },
+    setTaskGroup(e) {
+      dispatch(mutations.setTaskGroup(id, e.target.value));
+    },
+    setTaskName(e) {
+      dispatch(mutations.setTaskName(id, e.target.value));
     }
   }
 }
