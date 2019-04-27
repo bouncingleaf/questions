@@ -25,6 +25,26 @@ As it says on the React Redux website: React Redux "lets your React components r
 
 Here's an interesting blog article about mapDispatchToProps in function form or in object form: https://daveceddia.com/redux-mapdispatchtoprops-object-form/
 
+## Packages used
+
+### Dev dependencies:
+ * babel - JavaScript compiler, including converting React JSX syntax
+ * body-parser - for POST http requests
+ * concurrently - to start up the web server and the front end dev server simultaneously
+ * cors - cross origin request security
+ * eslint - linter
+ * express - receive http requests on the back end
+ * mongodb - database
+ * webpack - bundling
+
+### Production dependencies
+ * axios - sending http requests from the front end
+ * history - manage browsing history
+ * react - front end
+ * redux - state management
+ * saga - side effect management tool - allows us to mock back end
+ * uuid - random id generator
+
 ## Lessons learned along the way
 ### 1. Encountered two children with the same key
 
