@@ -5,11 +5,11 @@
   "main": "helloWorld.js",
   "scripts": {
     "build": "webpack -p",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run server",
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
-    "server": "babel-node src/server/server",
+    "server": "cross-env NODE_ENV=production babel-node src/server",
+    "server-dev": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
   },
@@ -34,6 +34,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cors": "^2.8.4",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
     "eslint-plugin-react": "^7.12.4",
