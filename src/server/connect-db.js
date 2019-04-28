@@ -5,7 +5,6 @@ let db = null;
 export async function connectDB() {
   let client = await MongoClient.connect(url, {useNewUrlParser: true});
   db = client.db();
-  console.info("got db: ", db);
   return db;
 }
 

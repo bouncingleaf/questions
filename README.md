@@ -40,6 +40,7 @@ Here's an interesting blog article about mapDispatchToProps in function form or 
 ### Production dependencies
  * axios - sending http requests from the front end
  * history - manage browsing history
+ * md5 - authentication
  * react - front end
  * redux - state management
  * saga - side effect management tool - allows us to mock back end
