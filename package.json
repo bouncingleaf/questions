@@ -2,14 +2,16 @@
   "name": "questions",
   "version": "1.0.0",
   "description": "Questions app",
+  "engines": {
+    "node": "10.15.1"
+  },
   "main": "helloWorld.js",
   "scripts": {
-    "build": "webpack -p",
+    "local-build": "webpack -p",
     "start": "npm run server",
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
-    "server": "cross-env NODE_ENV=production babel-node src/server",
-    "server-dev": "babel-node src/server/server",
+    "server": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
   },
@@ -34,9 +36,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cors": "^2.8.4",
-    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
-    "eslint-config-google": "^0.12.0",
     "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.3",
     "mongodb": "^3.1.10",
