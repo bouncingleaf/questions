@@ -5,7 +5,7 @@
   "engines": {
     "node": "10.15.1"
   },
-  "main": "helloWorld.js",
+  "main": "index.js",
   "scripts": {
     "local-build": "webpack -p",
     "start": "npm run server",
