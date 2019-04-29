@@ -8,11 +8,12 @@
   "main": "index.js",
   "scripts": {
     "local-build": "webpack -p",
-    "start": "npm run server",
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
-    "server": "babel-node src/server/server",
+    "server": "node dist/bundle.js",
+    "server-old": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
+    "start": "npm run server",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
   },
   "repository": {
