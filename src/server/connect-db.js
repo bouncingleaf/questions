@@ -7,5 +7,3 @@ export async function connectDB() {
   db = client.db();
   return db;
 }
-
-// connectDB();

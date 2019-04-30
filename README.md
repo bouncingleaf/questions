@@ -8,6 +8,19 @@ https://app.pluralsight.com/library/courses/react-express-full-stack-app-buildin
 
 I'm using this as a project to teach myself React, and specifically how a React application can make use of Express and set up authentication. So, I'm adding comments as I go, and making notes in this README about what I'm learning. 
 
+## Requirements for running locally
+
+### MongoDB
+
+You will need a local MongoDB instance with a database called questions, running as mongodb://localhost:27017/questions. The application will initialize the database if it has not already been initialized, so it's fine if the database is blank.
+
+For Windows, start MongoDB by navigating to the folder where MongoDB is installed, opening a command line, and executing ***mongod.exe***. 
+
+### Node and NPM
+
+1. Run ***npm install*** from the top level folder. This will install the dependencies. 
+2. Run ***npm run start-dev***. This will start both the back end server (on port 7777) and front end server (on port 8080)
+
 ## Structure of the application
 
 * ***index.html*** has an element with the id "app" and a call to run bundle.js.
