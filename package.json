@@ -7,11 +7,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "local-build": "webpack -p",
+    "build": "webpack -p",
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
-    "server": "node dist/bundle.js",
-    "server-old": "babel-node src/server/server",
+    "server-experiment": "babel dist/bundle.js",
+    "server": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
     "start": "npm run server",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "history": "^4.7.2",
     "md5": "^2.2.1",
     "react": "^16.4.2",
