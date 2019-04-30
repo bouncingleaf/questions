@@ -10,11 +10,10 @@
     "build": "webpack -p",
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
-    "server-experiment": "babel dist/bundle.js",
-    "server": "./node_modules/.bin/babel-node src/server/server",
+    "server": "node dist/bundle.js",
+    "server-original": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
-    "start": "npm run build && node ./src/server/server",
-    "start-original": "npm run server",
+    "start": "npm run server",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\""
   },
   "repository": {
