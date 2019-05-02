@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Questions app",
   "engines": {
-    "node": "10.15.1"
+    "node": "9.4.0"
   },
   "main": "index.js",
   "scripts": {
