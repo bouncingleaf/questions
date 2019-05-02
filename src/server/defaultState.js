@@ -20,11 +20,5 @@ export const defaultState = {
       group:"G1",
       owner:"U1",
       isComplete:false
-  }],
-  comments:[{
-      owner:"U1",
-      id:"C1",
-      task:"T1",
-      content:"Great!"
   }]
 }

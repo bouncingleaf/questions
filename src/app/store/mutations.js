@@ -16,7 +16,7 @@ export const REQUEST_QUESTION_CREATION = 'REQUEST_QUESTION_CREATION';
 export const CREATE_QUESTION = 'CREATE_QUESTION';
 export const SET_QUESTION_NAME = 'SET_QUESTION_NAME';
 export const SET_QUESTION_ANSWER = 'SET_QUESTION_ANSWER';
-export const SET_QUESTION_DISTRACTORS = 'SET_QUESTION_DISTRACTORS';
+export const SET_QUESTION_DISTRACTOR = 'SET_QUESTION_DISTRACTOR';
 
 export const requestTaskCreation = (groupID) => ({
   type: REQUEST_TASK_CREATION,
@@ -65,8 +65,9 @@ export const setState = (state = {}) => ({
   state
 }) 
 
-export const requestQuestionCreation = (groupID) => ({
-  type: REQUEST_QUESTION_CREATION
+export const requestQuestionCreation = (text) => ({
+  type: REQUEST_QUESTION_CREATION,
+  text
 });
 
 export const createQuestion = (questionID) => ({
@@ -86,9 +87,9 @@ export const setQuestionAnswer = (id, answer) => ({
   answer
 });
 
-export const setQuestionDistractors = (id, distractors) => ({
-  type: SET_QUESTION_DISTRACTORS,
+export const setQuestionDistractor = (id, distractor, index) => ({
+  type: SET_QUESTION_DISTRACTOR,
   questionID: id,
-  distractors
+  distractor,
+  index
 });
-

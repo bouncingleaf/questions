@@ -5,26 +5,49 @@ import * as mutations from '../store/mutations';
 
 const QuestionDetail = ({
   question,
-
   setQuestionName,
   setQuestionAnswer,
-  setQuestionDistractors
+  setQuestionDistractor
 }) => (
-  <div className="card p-3 col-6">
+  <form className="card p-3">
     <div>
-    	<input onChange={setQuestionName} value={question.question} 
-        className="form=control form-control-lg"/>
+      <label htmlFor="questionName">Question</label>
+      <input 
+        id="questionName"
+        onChange={setQuestionName}
+        value={question.name} 
+        className="form=control"/>
     </div>
     <div>
-    	<input onChange={setQuestionAnswer} value={question.answer} 
-        className="form=control form-control-lg"/>
+      <label htmlFor="questionAnswer">Correct answer</label>
+      <input
+        id="questionAnswer"
+        onChange={setQuestionAnswer}
+        value={question.answer} 
+        className="form=control"/>
+    </div>
+    <div>
+      <label htmlFor="questionDistractors">Distractors</label>
+      {question.distractors.map((distractor, index) => (
+        <input 
+          id={"distractor" + index}
+          onChange={setQuestionDistractor}
+          value={distractor}
+          key={distractor}
+          className="form-control"/>
+      ))}
     </div>
     <div>
       <Link to="/dashboard">
-          <button className="btn btn-primary mt-2">Back to list of questions</button>
+          Back to list of questions
       </Link>
     </div>
-  </div>
+    <div>
+      <Link to="/delete/${question.id}">
+          Delete this question
+      </Link>
+    </div>
+  </form>
 )
 
 const mapStateToProps = (state, ownProps) => {
@@ -32,7 +55,6 @@ const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.id;
   // Get the question by finding a question that matches that ID
   let question = state.questions.find(question => question.id === id);
-
   return {question};
 }
 
@@ -40,13 +62,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const id = ownProps.match.params.id;
   return {
     setQuestionName(e) {
-      // dispatch(mutations.setQuestionCompletion(id, isComplete));
+      console.log('Setting to ', e.target.value);
+      dispatch(mutations.setQuestionName(id, e.target.value));
     },
     setQuestionAnswer(e) {
-      // dispatch(mutations.setQuestionGroup(id, e.target.value));
+      console.log('Setting to ', e.target.value);
+      dispatch(mutations.setQuestionAnswer(id, e.target.value));
     },
-    setQuestionDistractors(e) {
-      // dispatch(mutations.setQuestionName(id, e.target.value));
+    setQuestionDistractor(e) {      
+      console.log('Setting to ', e.target.value);
+      dispatch(mutations.setQuestionDistractor(id, e.target.value));
     }
   }
 }

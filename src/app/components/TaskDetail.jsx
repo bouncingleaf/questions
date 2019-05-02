@@ -5,7 +5,6 @@ import * as mutations from '../store/mutations';
 
 const TaskDetail = ({
   id,
-  comments,
   task,
   isComplete,
   groups,
@@ -17,7 +16,7 @@ const TaskDetail = ({
   <div className="card p-3 col-6">
     <div>
     	<input onChange={setTaskName} value={task.name} 
-        className="form=control form-control-lg"/>
+        className="form=control"/>
     </div>
     <div>
       <button className="btn btn-primary mt-2"

@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { defaultState } from '../../server/defaultState';
 import * as sagas from './sagas';
@@ -26,6 +26,32 @@ export const store = createStore(
       switch(action.type) {
         case mutations.SET_STATE:
         return action.state.questions;
+        case mutations.CREATE_QUESTION:
+          return [...questions, {
+            id: action.questionID,
+            name: "New question",
+            group: action.groupID,
+            owner: action.ownerID,
+            isComplete: false
+          }];
+        case mutations.SET_QUESTION_NAME:
+          return questions.map(question => {
+            return (question.id === action.questionID) ?
+              {...question, isComplete: action.isComplete} :
+              question;
+          })
+        case mutations.SET_QUESTION_ANSWER:
+          return questions.map(question => {
+            return (question.id === action.questionID) ?
+              {...question, group: action.groupID} :
+              question;
+          })
+        case mutations.SET_QUESTION_DISTRACTOR:
+          return questions.map(question => {
+            return (question.id === action.questionID) ?
+              {...question, name: action.name} :
+              question;
+          })
       }
       return questions;
     },
@@ -76,7 +102,7 @@ export const store = createStore(
       return users;
     }
   }),
-  applyMiddleware(createLogger(), sagaMiddleware)
+  applyMiddleware(sagaMiddleware)
 );
 
 for (let saga in sagas) {

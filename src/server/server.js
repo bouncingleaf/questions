@@ -50,17 +50,17 @@ export const updateTask = async task => {
   }
 }
 
-app.post('/task/new', async (req, res) => {
+app.post('/question/new', async (req, res) => {
   // body is the data passed in with the request
-  let task = req.body.task;
-  await addNewTask(task);
+  let question = req.body.question;
+  await addNewQuestion(question);
   res.status(200).send()
 });
 
-app.post('/task/update', async (req, res) => {
+app.post('/question/update', async (req, res) => {
   // body is the data passed in with the request
-  let task = req.body.task;
-  await updateTask(task);
+  let question = req.body.question;
+  await updateQuestion(question);
   res.status(200).send()
 });
 

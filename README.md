@@ -71,7 +71,7 @@ This application assumes that:
  * md5 - authentication
  * react - front end
  * redux - state management
- * saga - side effect management tool - allows us to mock back end
+ * saga - side effect management tool
  * uuid - random id generator
 
 ## Lessons learned along the way
@@ -107,9 +107,18 @@ The tutorial doesn't really explain what "match" is or where it comes from (used
 https://medium.freecodecamp.org/hitchhikers-guide-to-react-router-v4-4b12e369d10
 
 ### 5. Node, NPM, and Heroku
+
 I had a discussion with a very helpful Puralsight'r here:
 https://app.pluralsight.com/library/courses/react-express-full-stack-app-building/discussion
 
 The short version of that discussion: My deploy to Heroku wasn't working. It would deploy but then immediately crash on the heroku side. I tracked it down to this: I had specified (in package.json) the version of Node that I was using locally, and this turned out to be a higher version of Node than the instructor was using in the React course. Somewhere between his version and mine, something had changed that was causing the deploy to Heroku to stop working. So, this project is running Node 9.2.0, even though that is not the latest version available.
 
-### 6. This was a MUCH bigger project than I meant it to be.
+### 6. Functional vs. Class components
+
+I don't really have enough experience yet to take a stand on functional components vs. class components in React. I'm using functional components here because that's what I learned to do, and it wasn't until after the project was mostly coded that I learned that class components exist!
+
+https://medium.freecodecamp.org/7-reasons-to-outlaw-reacts-functional-components-ff5b5ae09b7c
+https://medium.freecodecamp.org/8-key-react-component-decisions-cc965db11594
+https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc
+
+### 7. This was a MUCH bigger project than I meant it to be.

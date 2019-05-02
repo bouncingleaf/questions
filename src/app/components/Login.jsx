@@ -5,14 +5,14 @@ import * as mutations from '../store/mutations';
 const LoginComponent = ({authenticateUser, authenticated}) => {
   return <div className="card p-3 col-6">
     <h2>
-      Please log in
+      Welcome to the Questions application! Please log in:
     </h2>
     <form onSubmit={authenticateUser}>
       <input 
         type="text" 
         placeholder="username" 
         name="username" 
-        defaultValue=""
+        defaultValue="Pluralsight"
         className="form-control"
       />
       <input 
@@ -24,7 +24,13 @@ const LoginComponent = ({authenticateUser, authenticated}) => {
       />
       {authenticated === mutations.NOT_AUTHENTICATED ? <p>Login incorrect</p> : null}
       <div>
-        <button type="submit" className="form-control mt-2 btn btn-primary">Log In</button>
+        <button type="submit" className="form-control mt-2 btn btn-primary">
+        {authenticated === mutations.AUTHENTICATING ? 
+        <div>
+          <span className="spinner-border spinner-border-sm text-info"></span> Logging In...
+        </div> :
+         "Log In"}
+        </button>
       </div>
     </form>
   </div>

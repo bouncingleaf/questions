@@ -7,10 +7,7 @@ import { requestQuestionCreation } from '../store/mutations';
 export const QuestionList = ({questions}) => (
     <div className="card p-2 m-2">
       <h3>
-        Questions
-        <button id="newQuestion" className="btn btn-primary btn-block mt-2">
-          Add New
-        </button>
+        All of the Questions
       </h3>
       <div>
           {questions.map(question => (
@@ -47,9 +44,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+    // const text = ownProps.match.params.text;
     return {
-      createNewQuestion(id) {
-        dispatch(requestQuestionCreation(id));
+      createNewQuestion() {
+        dispatch(requestQuestionCreation());
       }
     }
 }

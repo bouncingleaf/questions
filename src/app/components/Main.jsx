@@ -8,7 +8,7 @@ import { ConnectedDashboard } from './Dashboard';
 import { ConnectedLogin } from './Login';
 import { ConnectedNavigation } from './Navigation';
 import { ConnectedQuestionDetail } from './QuestionDetail';
-import { ConnectedTaskDetail } from './TaskDetail';
+import { ConnectedDeleteQuestion } from './DeleteQuestion';
 
 const RouteGuard = Component => ({match}) =>
   !store.getState().session.authenticated ?
@@ -32,13 +32,13 @@ export const Main = () => (
         />
         <Route
           exact
-          path="/task/:id"
-          render={RouteGuard(ConnectedTaskDetail)}
+          path="/question/:id"
+          render={RouteGuard(ConnectedQuestionDetail)}
         />
         <Route
           exact
-          path="/question/:id"
-          render={RouteGuard(ConnectedQuestionDetail)}
+          path="/delete/:id"
+          render={RouteGuard(ConnectedDeleteQuestion)}
         />
       </div>
     </Provider>

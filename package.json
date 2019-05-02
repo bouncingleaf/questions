@@ -14,7 +14,6 @@
     "postinstall": "npm install --save-dev webpack-cli",
     "server-dev": "nodemon src/server --exec babel-node src/server",
     "server": "babel-node src/server/server",
-    "server-test": "babel-node src/server/server.spec",
     "start": "npm run server",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\"",
     "heroku-postbuild": "echo Skipping heroku build"
