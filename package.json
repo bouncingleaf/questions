@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Questions app",
   "engines": {
-    "node": "9.2.0"
+    "node": "10.15.1"
   },
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "server-test": "babel-node src/server/server.spec",
     "start": "npm run server",
     "start-dev": "concurrently \"npm run server\" \"npm run dev\"",
-    "foo": "echo \"heroku postbuild done\""
+    "heroku-postbuild": "echo Skipping heroku build"
   },
   "repository": {
     "type": "git",
