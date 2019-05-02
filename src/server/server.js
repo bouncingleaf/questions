@@ -11,10 +11,10 @@ let app = express();
 
 app.listen(port, console.log('Server listening on port', port));
 
-// A simple test:
-app.get('/', (req, res) => {
-  res.send("Hello world!!");
-})
+// // A simple test:
+// app.get('/', (req, res) => {
+//   res.send("Hello world!!");
+// })
 
 app.use(
   cors(),
