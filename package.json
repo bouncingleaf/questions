@@ -32,6 +32,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
     "history": "^4.7.2",
     "md5": "^2.2.1",
     "react": "^16.4.2",
@@ -54,14 +56,12 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.2",
     "concurrently": "^4.0.1",
-    "cors": "^2.8.4",
     "cross-env": "^5.2.0",
     "csvtojson": "^2.0.8",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
-    "express": "^4.16.3",
     "mongodb": "^3.1.10",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.1.7"
   }
 }

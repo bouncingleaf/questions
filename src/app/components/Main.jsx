@@ -9,13 +9,10 @@ import { ConnectedLogin } from './Login';
 import { ConnectedNavigation } from './Navigation';
 import { ConnectedTaskDetail } from './TaskDetail';
 
-const RouteGuard = Component => ({match}) => {
-  if (!store.getState().session.authenticated) {
-    return <Redirect to="/"/>;
-  } else {
-    return <Component match={match}/>;
-  }
-}
+const RouteGuard = Component => ({match}) =>
+  !store.getState().session.authenticated ?
+  <Redirect to="/"/> :
+  <Component match={match}/>;
 
 export const Main = () => (
   <Router history={history}>
