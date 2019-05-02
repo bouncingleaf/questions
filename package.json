@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Questions app",
   "engines": {
-    "node": "10.15.1"
+    "node": "9.2.0"
   },
   "main": "index.js",
   "scripts": {
@@ -61,7 +61,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
     "mongodb": "^3.1.10",
-    "webpack-cli": "^3.2.1",
+    "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1"
   }
 }
