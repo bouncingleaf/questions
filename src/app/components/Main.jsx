@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import { Route, Router } from 'react-router-dom';
 import { history } from '../store/history';
 import { store } from '../store';
+import { About } from './About';
 import { ConnectedDashboard } from './Dashboard';
 import { ConnectedLogin } from './Login';
 import { ConnectedNavigation } from './Navigation';
@@ -39,6 +40,11 @@ export const Main = () => (
           exact
           path="/delete/:id"
           render={RouteGuard(ConnectedDeleteQuestion)}
+        />
+        <Route
+          exact
+          path="/about"
+          render={RouteGuard(About)}
         />
       </div>
     </Provider>
