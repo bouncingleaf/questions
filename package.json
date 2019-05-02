@@ -12,9 +12,13 @@
     "start": "npm run server",
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
-    "server": "babel-node src/server/server",
+    "server-old": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
-    "start-dev": "concurrently \"npm run server\" \"npm run dev\""
+    "start-dev": "concurrently \"npm run server\" \"npm run dev\"",
+    "deploy": "npm run build && git commit -a -m deployment && git push heroku master",
+    "postinstall": "npm install --save-dev webpack-cli",
+    "server": "cross-env NODE_ENV=production babel-node src/server",
+    "server-dev": "nodemon src/server --exec babel-node src/server"
   },
   "repository": {
     "type": "git",
@@ -26,29 +30,9 @@
     "url": "https://github.com/bouncingleaf/questions/issues"
   },
   "homepage": "https://github.com/bouncingleaf/questions#readme",
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.2",
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.0.1",
-    "cors": "^2.8.4",
-    "csvtojson": "^2.0.8",
-    "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.12.4",
-    "express": "^4.16.3",
-    "mongodb": "^3.1.10",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.3.1"
-  },
   "dependencies": {
-    "@babel/cli": "^7.4.4",
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "history": "^4.7.2",
     "md5": "^2.2.1",
     "react": "^16.4.2",
@@ -59,6 +43,25 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.2",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "webpack": "^4.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.2",
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.4",
+    "csvtojson": "^2.0.8",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.10",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.3.1"
   }
 }
