@@ -6,18 +6,22 @@ const authenticationTokens = [];
 
 async function assembleUserState(user){
   let db = await connectDB();
-  let tasks = await db.collection(`tasks`).find({owner: user.id}).toArray();
-  let groups = await db.collection(`groups`).find({owner: user.id}).toArray();
+  let tasks = await db.collection('tasks').find({owner: user.id}).toArray();
+  let groups = await db.collection('groups').find({owner: user.id}).toArray();
+  let questions = await db.collection('questions').find({}).toArray();
 
   return {
     tasks,
     groups,
+    questions,
+    "foo": ['some other thing'],
     session: {authenticated: `AUTHENTICATED`, id: user.id}
-  }
+  };
 }
 
 export const authenticationRoute = app => {
-  app.post('/authenticate', async (req, res) => {
+  // Authenticates the user and loads state for the user from the database
+  app.post('/authenticate', async (req, res) => {    
     let {username, password} = req.body;
     let db = await connectDB();
     let collection = db.collection(`users`);

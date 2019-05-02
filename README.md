@@ -1,12 +1,18 @@
 # questions
-Questions full stack app
 
 ## What is this?
-This is an app based on (so far, nearly identical to) the application built during the Pluralsight course 
+This is an app based on the application built during the Pluralsight course 
 "Building a full stack app with React and Express". 
 https://app.pluralsight.com/library/courses/react-express-full-stack-app-building
 
-I'm using this as a project to teach myself React, and specifically how a React application can make use of Express and set up authentication. So, I'm adding comments as I go, and making notes in this README about what I'm learning. 
+I'm using this as a project to teach myself React, and specifically how a React application can make use of Express and set up authentication. 
+
+This README includes: 
+* Requirements for running locally
+* An overview of the structure of the application
+* Packages used, and why
+* Notes about what I'm learning
+
 
 ## Requirements for running locally
 
@@ -30,16 +36,6 @@ Initialize the database by running ***npm run initialize***. This will take the 
 * In src/app/, the default file ***index.jsx*** calls ReactDOM.render, passing in Main (from Main.jsx) and the element with the id "app".
 * ***Main.jsx*** sets up a Router (with a history), a Provider (with a store), includes ConnectedNavigation, and establishes several Routes, including /dashboard and /task/:id.
 
-## Redux helps us manage state
-As it says on the React Redux website: React Redux "lets your React components read data from a Redux store, and dispatch actions to the store to update data."
-
-* The ***Provider*** API mentioned above makes the Redux store available to the app.
-* The ***connect*** function takes two arguments: mapStateToProps and mapDispatchToProps, both optional. It returns a function, and when you run that function on a component (such as TaskList) you get a connected component (such as ConnectedTaskList).
-  * mapStateToProps describes which part of the store's data the component needs
-  * mapDispatchToProps "is used for dispatching actions to the store". 
-
-Here's an interesting blog article about mapDispatchToProps in function form or in object form: https://daveceddia.com/redux-mapdispatchtoprops-object-form/
-
 ## Packages used
 
 ### Dev dependencies:
@@ -62,7 +58,20 @@ Here's an interesting blog article about mapDispatchToProps in function form or 
  * uuid - random id generator
 
 ## Lessons learned along the way
-### 1. Encountered two children with the same key
+
+### 1. Redux helps us manage state
+I hadn't worked with Redux before, so I wanted to make a quick summary of what I learned:
+
+As it says on the React Redux website: React Redux "lets your React components read data from a Redux store, and dispatch actions to the store to update data."
+
+* The ***Provider*** API mentioned above makes the Redux store available to the app.
+* The ***connect*** function takes two arguments: mapStateToProps and mapDispatchToProps, both optional. It returns a function, and when you run that function on a component (such as TaskList) you get a connected component (such as ConnectedTaskList).
+  * mapStateToProps describes which part of the store's data the component needs
+  * mapDispatchToProps "is used for dispatching actions to the store". 
+
+Here's an interesting blog article about mapDispatchToProps in function form or in object form: https://daveceddia.com/redux-mapdispatchtoprops-object-form/
+
+### 2. Encountered two children with the same key
 
 This bug was so clear in hindsight:
 
@@ -70,11 +79,17 @@ This bug was so clear in hindsight:
 
 I had key="{groupId}" instead of key={groupId} (it shouldn't have quotation marks). 
 
-### 2. When to use curly braces on import?
+### 3. When to use curly braces on import?
 
 I realized as I was following along with the Pluralsight tutorial that I didn't know why the presenter was sometimes using curly braces at import and sometimes not. Here's a good explanation: http://2ality.com/2014/09/es6-modules-final.html
 
-### 3. Router
+### 4. Router
 
 The tutorial doesn't really explain what "match" is or where it comes from (used in TaskDetail.jsx). I found a pretty good page on it (and other features of React's Router) here:
 https://medium.freecodecamp.org/hitchhikers-guide-to-react-router-v4-4b12e369d10
+
+### 5. Node, NPM, and Heroku
+I had a discussion with a very helpful Puralsight'r here:
+https://app.pluralsight.com/library/courses/react-express-full-stack-app-building/discussion
+
+The short version of that discussion: My deploy to Heroku wasn't working. It would deploy but then immediately crash on the heroku side. I tracked it down to this: I had specified (in package.json) the version of Node that I was using locally, and this turned out to be a higher version of Node than the instructor was using in the React course. Somewhere between his version and mine, something had changed that was causing the deploy to Heroku to stop working. I narrowed it down to Node 10.9.0 vs. Node 10.10.0, which also happens to be where a change in the default version of NPM was made. So, this project is running Node 10.9.0, even though that is not the latest version available.

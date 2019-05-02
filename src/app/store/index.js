@@ -22,6 +22,13 @@ export const store = createStore(
           return userSession;
       }
     },
+    questions(questions = [], action) {
+      switch(action.type) {
+        case mutations.SET_STATE:
+        return action.state.questions;
+      }
+      return questions;
+    },
     tasks(tasks = [], action) {
       switch(action.type) {
         case mutations.SET_STATE:
