@@ -12,12 +12,13 @@
     "dev": "webpack-dev-server --open",
     "initialize": "babel-node src/server/initialize-db",
     "postinstall": "npm install --save-dev webpack-cli",
-    "server": "cross-env NODE_ENV=production babel-node src/server",
+    "server-new": "cross-env NODE_ENV=production babel-node src/server",
     "server-dev": "nodemon src/server --exec babel-node src/server",
-    "server-old": "babel-node src/server/server",
+    "server": "babel-node src/server/server",
     "server-test": "babel-node src/server/server.spec",
     "start": "npm run server",
-    "start-dev": "concurrently \"npm run server\" \"npm run dev\""
+    "start-dev": "concurrently \"npm run server\" \"npm run dev\"",
+    "foo": "echo \"heroku postbuild done\""
   },
   "repository": {
     "type": "git",
