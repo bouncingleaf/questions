@@ -5,9 +5,10 @@ import React from 'react';
 const Navigation = () => (
   <div>
     <Link to="/dashboard">
-      <h1>
-        My application
-      </h1>
+      Question List
+    </Link>
+    <Link to="/add">
+      Add Question
     </Link>
   </div>
 )

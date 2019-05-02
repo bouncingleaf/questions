@@ -7,6 +7,7 @@ import { store } from '../store';
 import { ConnectedDashboard } from './Dashboard';
 import { ConnectedLogin } from './Login';
 import { ConnectedNavigation } from './Navigation';
+import { ConnectedQuestionDetail } from './QuestionDetail';
 import { ConnectedTaskDetail } from './TaskDetail';
 
 const RouteGuard = Component => ({match}) =>
@@ -33,6 +34,11 @@ export const Main = () => (
           exact
           path="/task/:id"
           render={RouteGuard(ConnectedTaskDetail)}
+        />
+        <Route
+          exact
+          path="/question/:id"
+          render={RouteGuard(ConnectedQuestionDetail)}
         />
       </div>
     </Provider>

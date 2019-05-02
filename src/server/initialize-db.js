@@ -2,6 +2,7 @@ import { defaultState } from './defaultState';
 import { connectDB } from './connect-db';
 import csv from 'csvtojson';
 import path from 'path';
+import uuid from 'uuid';
 
 async function initializeDB() {
   const csvfile = path.resolve(__dirname,'../data','questions.csv');
@@ -13,8 +14,21 @@ async function initializeDB() {
     console.log('Updating the database...');
 
     // Update the questions
-    const jsonArray = await csv().fromFile(csvfile);
+    let jsonArray = await csv().fromFile(csvfile);
     let questions = db.collection("questions");
+
+    jsonArray = jsonArray.map((question) => {
+      try {
+        // Add an identifier and break up the distractors
+        question['id'] = uuid();
+        question['distractors'] = question.distractors.split('#');
+      }
+      catch (e) {
+        console.log('Could not update question', question);
+      }
+      return question;
+    });
+
     // pass insertMany an array, and that will be inserted in the db if everything is valid
     await questions.insertMany(jsonArray);
 
@@ -24,7 +38,7 @@ async function initializeDB() {
       let collection = db.collection(collectionName);
       await collection.insertMany(defaultState[collectionName]);
     }
-    console.log('Done!');
+    console.log('Done! Press Ctrl-C to exit.');
     
   }
 }

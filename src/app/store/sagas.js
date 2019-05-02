@@ -28,6 +28,28 @@ export function* taskCreationSaga(){
   }
 }
 
+// export function* questionCreationSaga(){
+//   while (true) {
+//     // Get the group ID from the task creation request
+//     const {groupID} = yield take(mutations.REQUEST_TASK_CREATION);
+//     // default owner ID, for now
+//     const ownerID = 'U1';
+//     // Get a random taskID from uuid
+//     const taskID = uuid();
+//     // Actually create the task:
+//     yield put(mutations.createTask(taskID, groupID, ownerID));
+//     const {res} = yield axios.post(url + `/task/new`,{
+//       task: {
+//         id: taskID,
+//         group: groupID,
+//         owner: ownerID, 
+//         isComplete: false,
+//         name: "a new task"
+//       }
+//     });
+//   }
+// }
+
 export function* taskModificationSaga(){
   while (true) {
     const task = yield take([
