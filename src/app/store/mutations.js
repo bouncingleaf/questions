@@ -1,9 +1,3 @@
-// Tasks
-export const REQUEST_TASK_CREATION = 'REQUEST_TASK_CREATION';
-export const CREATE_TASK = 'CREATE_TASK';
-export const SET_TASK_COMPLETE = 'SET_TASK_COMPLETE';
-export const SET_TASK_GROUP = 'SET_TASK_GROUP';
-export const SET_TASK_NAME = 'SET_TASK_NAME';
 // Authentication and State
 export const REQUEST_AUTHENTICATE_USER = 'REQUEST_AUTHENTICATE_USER';
 export const PROCESSING_AUTHENTICATED_USER = 'PROCESSING_AUTHENTICATED_USER';
@@ -16,37 +10,8 @@ export const REQUEST_QUESTION_CREATION = 'REQUEST_QUESTION_CREATION';
 export const CREATE_QUESTION = 'CREATE_QUESTION';
 export const SET_QUESTION_NAME = 'SET_QUESTION_NAME';
 export const SET_QUESTION_ANSWER = 'SET_QUESTION_ANSWER';
-export const SET_QUESTION_DISTRACTOR = 'SET_QUESTION_DISTRACTOR';
+export const SET_QUESTION_DISTRACTORS = 'SET_QUESTION_DISTRACTORS';
 
-export const requestTaskCreation = (groupID) => ({
-  type: REQUEST_TASK_CREATION,
-  groupID
-});
-
-export const createTask = (taskID, groupID, ownerID) => ({
-  type: CREATE_TASK,
-  taskID,
-  groupID,
-  ownerID
-});
-
-export const setTaskCompletion = (id, isComplete) => ({
-  type: SET_TASK_COMPLETE,
-  taskID: id,
-  isComplete
-});
-
-export const setTaskGroup = (id, groupID) => ({
-  type: SET_TASK_GROUP,
-  taskID: id,
-  groupID
-});
-
-export const setTaskName = (id, name) => ({
-  type: SET_TASK_NAME,
-  taskID: id,
-  name
-});
 
 export const requestAuthenticateUser = (username, password) => ({
   type: REQUEST_AUTHENTICATE_USER,
@@ -75,10 +40,10 @@ export const createQuestion = (questionID) => ({
   questionID
 });
 
-export const setQuestionName = (id, name) => ({
+export const setQuestionName = (id, question) => ({
   type: SET_QUESTION_NAME,
   questionID: id,
-  name
+  question
 });
 
 export const setQuestionAnswer = (id, answer) => ({
@@ -88,7 +53,7 @@ export const setQuestionAnswer = (id, answer) => ({
 });
 
 export const setQuestionDistractor = (id, distractor, index) => ({
-  type: SET_QUESTION_DISTRACTOR,
+  type: SET_QUESTION_DISTRACTORS,
   questionID: id,
   distractor,
   index

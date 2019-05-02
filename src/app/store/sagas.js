@@ -6,63 +6,36 @@ import {history} from './history';
 
 const url = process.env.NODE_ENV == 'production' ? '' : 'http://localhost:7777';
 
-export function* taskCreationSaga(){
+export function* questionCreationSaga(){
   while (true) {
-    // Get the group ID from the task creation request
-    const {groupID} = yield take(mutations.REQUEST_TASK_CREATION);
-    // default owner ID, for now
-    const ownerID = 'U1';
-    // Get a random taskID from uuid
-    const taskID = uuid();
-    // Actually create the task:
-    yield put(mutations.createTask(taskID, groupID, ownerID));
-    const {res} = yield axios.post(url + `/task/new`,{
-      task: {
-        id: taskID,
-        group: groupID,
-        owner: ownerID, 
-        isComplete: false,
-        name: "a new task"
+    // Get the question text from the creation request:
+    const {text} = yield take(mutations.REQUEST_QUESTION_CREATION);
+    // Get a random questionID from uuid
+    const questionID = uuid();
+    // Actually create the question:
+    yield put(mutations.createQuestion(questionID, text));
+    const {res} = yield axios.post(url + `/question/new`,{
+      question: {
+        id: questionID,
+        question: text
       }
     });
   }
 }
 
-// export function* questionCreationSaga(){
-//   while (true) {
-//     // Get the group ID from the task creation request
-//     const {groupID} = yield take(mutations.REQUEST_TASK_CREATION);
-//     // default owner ID, for now
-//     const ownerID = 'U1';
-//     // Get a random taskID from uuid
-//     const taskID = uuid();
-//     // Actually create the task:
-//     yield put(mutations.createTask(taskID, groupID, ownerID));
-//     const {res} = yield axios.post(url + `/task/new`,{
-//       task: {
-//         id: taskID,
-//         group: groupID,
-//         owner: ownerID, 
-//         isComplete: false,
-//         name: "a new task"
-//       }
-//     });
-//   }
-// }
-
-export function* taskModificationSaga(){
+export function* questionModificationSaga(){
   while (true) {
-    const task = yield take([
-      mutations.SET_TASK_GROUP,
-      mutations.SET_TASK_NAME,
-      mutations.SET_TASK_COMPLETE
+    const question = yield take([
+      mutations.SET_QUESTION_NAME,
+      mutations.SET_QUESTION_ANSWER,
+      mutations.SET_QUESTION_DISTRACTORS
     ]);
-    const {res} = yield axios.post(url + `/task/update`,{
-      task: {
-        id: task.taskID,
-        group: task.groupID,
-        name: task.name,
-        isComplete: task.isComplete
+    const {res} = yield axios.post(url + `/question/update`,{
+      question: {
+        id: question.questionID,
+        question: question.question,
+        answer: question.answer,
+        distractors: question.distractors
       }
     });
   }

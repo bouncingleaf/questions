@@ -7,10 +7,10 @@ const DeleteQuestion = ({id, question}) => (
     <div>
       Delete this question?
       <div>
-        {question.name}
+        {question.question}
       </div>
     </div>
-        <Link to="/question" className="nav-link">Cancel</Link>
+        <Link to={`/question/${id}`} className="nav-link">Cancel</Link>
         <Link to="/add" className="nav-link">Delete it</Link>
   </div>
 )

@@ -50,6 +50,28 @@ export const updateTask = async task => {
   }
 }
 
+export const addNewQuestion = async question => {
+  let db = await connectDB();
+  let collection = db.collection(`questions`);
+  await collection.insertOne(question);
+}
+
+export const updateQuestion = async question => {
+  let { id, questionName, answer, distractors } = question;
+  let db = await connectDB();
+  let collection = db.collection(`questions`);
+
+  if (questionName) {
+    await collection.updateOne({id},{$set:{question: questionName}})
+  }
+  if (answer) {
+    await collection.updateOne({id},{$set:{answer}})
+  }
+  if (distractors) {
+    await collection.updateOne({id},{$set:{distractors}})
+  }
+}
+
 app.post('/question/new', async (req, res) => {
   // body is the data passed in with the request
   let question = req.body.question;

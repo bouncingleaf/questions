@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { requestQuestionCreation } from '../store/mutations';
 
 export const QuestionList = ({questions}) => (
     <div className="card p-2 m-2">
       <h3>
-        All of the Questions
+        All Questions
       </h3>
       <div>
           {questions.map(question => (
@@ -31,9 +30,6 @@ export const QuestionList = ({questions}) => (
               </div>
           ))}
       </div>
-      <button className="btn btn-primary btn-block mt-2">
-        Add New
-      </button>
     </div>
 )
 

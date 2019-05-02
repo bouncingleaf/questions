@@ -21,7 +21,7 @@ async function initializeDB() {
       try {
         // Add an identifier and break up the distractors
         question['id'] = uuid();
-        question['distractors'] = question.distractors.split('#');
+        question['distractors'] = question.distractors.split('#').map(str => str.trim());
       }
       catch (e) {
         console.log('Could not update question', question);
@@ -32,9 +32,8 @@ async function initializeDB() {
     // pass insertMany an array, and that will be inserted in the db if everything is valid
     await questions.insertMany(jsonArray);
 
-    // Update the users and any other data
+    // Update the users
     for (let collectionName in defaultState) {
-      // collections are: users, groups, tasks, etc.
       let collection = db.collection(collectionName);
       await collection.insertMany(defaultState[collectionName]);
     }

@@ -6,15 +6,10 @@ const authenticationTokens = [];
 
 async function assembleUserState(user){
   let db = await connectDB();
-  let tasks = await db.collection('tasks').find({owner: user.id}).toArray();
-  let groups = await db.collection('groups').find({owner: user.id}).toArray();
   let questions = await db.collection('questions').find({}).toArray();
 
   return {
-    tasks,
-    groups,
     questions,
-    "foo": ['some other thing'],
     session: {authenticated: `AUTHENTICATED`, id: user.id}
   };
 }

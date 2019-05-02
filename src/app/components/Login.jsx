@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import * as mutations from '../store/mutations';
 
 const LoginComponent = ({authenticateUser, authenticated}) => {
-  return <div className="card p-3 col-6">
+  return <div className="card p-3 col-sm-12 col-md-8">
     <h2>
-      Welcome to the Questions application! Please log in:
+      Welcome to the Questions application!
     </h2>
+    <h3>
+      Please log in:
+    </h3>
     <form onSubmit={authenticateUser}>
       <input 
         type="text" 

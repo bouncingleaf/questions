@@ -83,7 +83,7 @@ I hadn't worked with Redux before, so I wanted to make a quick summary of what I
 As it says on the React Redux website: React Redux "lets your React components read data from a Redux store, and dispatch actions to the store to update data."
 
 * The ***Provider*** API mentioned above makes the Redux store available to the app.
-* The ***connect*** function takes two arguments: mapStateToProps and mapDispatchToProps, both optional. It returns a function, and when you run that function on a component (such as TaskList) you get a connected component (such as ConnectedTaskList).
+* The ***connect*** function takes two arguments: mapStateToProps and mapDispatchToProps, both optional. It returns a function, and when you run that function on a component (such as QuestionList) you get a connected component (such as ConnectedQuestionList).
   * mapStateToProps describes which part of the store's data the component needs
   * mapDispatchToProps "is used for dispatching actions to the store". 
 
