@@ -13,7 +13,6 @@ This README includes:
 * Packages used, and why
 * Notes about what I'm learning
 
-
 ## Requirements for running locally
 
 ### Node and NPM
