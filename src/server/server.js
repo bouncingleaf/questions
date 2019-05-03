@@ -1,10 +1,12 @@
+require('dotenv').config();
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
-import { connectDB } from './connect-db';
-import './initialize-db';
 import { authenticationRoute } from './authenticate';
+import { connectDB } from './connect-db';
+import { deleteRoute } from './delete';
+import './initialize-db';
 
 let port = process.env.PORT || 7777;
 let app = express();
@@ -18,6 +20,7 @@ app.use(
 );
 
 authenticationRoute(app);
+deleteRoute(app);
 
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static(path.resolve(__dirname, '../../dist')));

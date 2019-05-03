@@ -53,6 +53,17 @@ This application assumes that:
 
 ## Packages used
 
+### Production dependencies
+
+ * axios - sending http requests from the front end
+ * dotenv - environment variable assistant
+ * history - manage browsing history
+ * md5 - authentication
+ * react - front end
+ * redux - state management
+ * saga - side effect management tool
+ * uuid - random id generator
+
 ### Dev dependencies:
 
  * babel - JavaScript compiler, including converting React JSX syntax
@@ -63,16 +74,6 @@ This application assumes that:
  * express - receive http requests on the back end
  * mongodb - database
  * webpack - bundling
-
-### Production dependencies
-
- * axios - sending http requests from the front end
- * history - manage browsing history
- * md5 - authentication
- * react - front end
- * redux - state management
- * saga - side effect management tool
- * uuid - random id generator
 
 ## Lessons learned along the way
 

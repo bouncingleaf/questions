@@ -6,7 +6,7 @@ const authenticationTokens = [];
 
 async function assembleUserState(user){
   let db = await connectDB();
-  let questions = await db.collection('questions').find({}).toArray();
+  let questions = await db.collection('questions').toArray();
 
   return {
     questions,
