@@ -20,7 +20,7 @@ const DeleteQuestion = ({id, question}) => (
         </li>
       </ul>
     </div>
-        <Link to={`/question/${id}`}>
+        <Link to={`/dashboard`}>
           <button className="btn btn-sm btn-primary mt-2">Cancel</button>
         </Link>
         <Link to={`/delete/${id}`}>

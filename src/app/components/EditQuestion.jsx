@@ -43,13 +43,13 @@ const EditQuestion = ({
       </div>
       <div className="mt-3">
         <Link to="/dashboard">
-          <button className="btn btn-primary btn-sm">
+          <button className="btn btn-primary btn-sm mt-2">
             Back to list of questions
           </button>
         </Link>
       </div>
       <div className="mt-3">
-        <button className="btn btn-danger btn-sm">
+        <button className="btn btn-danger btn-sm mt-2">
           Delete question?
         </button>
       </div>

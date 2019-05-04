@@ -35,7 +35,7 @@ You will need Node, NPM, and MongoDB.
 * ***index.html*** has an element with the id "app" and a call to run bundle.js.
 * ***webpack.config.js***, for the development mode, specifies an entry path of src/app/, an output path of dist/ and a filename of bundle.js with a public path of /.
 * In src/app/, the default file ***index.jsx*** calls ReactDOM.render, passing in Main (from Main.jsx) and the element with the id "app".
-* ***Main.jsx*** sets up a Router (with a history), a Provider (with a store), and establishes several Routes, including /dashboard and /question/:id.
+* ***Main.jsx*** sets up a Router (with a history), a Provider (with a store), and establishes several Routes, including /dashboard and /edit/:id.
 
 ## Assumptions
 

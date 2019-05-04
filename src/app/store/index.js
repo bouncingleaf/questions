@@ -1,6 +1,5 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-// import { defaultState } from '../../server/defaultState';
 import * as sagas from './sagas';
 import * as mutations from './mutations';
 
@@ -32,6 +31,8 @@ export const store = createStore(
             answer: action.answer,
             distractors: action.distractors
           }];
+        case mutations.DELETE_QUESTION:
+          return [...questions.filter(id !== action.questionID)];
         case mutations.SET_QUESTION_NAME:
           return questions.map(question => {
             return (question.id === action.questionID) ?

@@ -7,7 +7,9 @@ export const NOT_AUTHENTICATED= 'NOT_AUTHENTICATED';
 export const SET_STATE = 'SET_STATE';
 // Question management
 export const REQUEST_QUESTION_CREATION = 'REQUEST_QUESTION_CREATION';
+export const REQUEST_QUESTION_DELETION = 'REQUEST_QUESTION_DELETION';
 export const CREATE_QUESTION = 'CREATE_QUESTION';
+export const DELETE_QUESTION = 'DELETE_QUESTION';
 export const SET_QUESTION_NAME = 'SET_QUESTION_NAME';
 export const SET_QUESTION_ANSWER = 'SET_QUESTION_ANSWER';
 export const SET_QUESTION_DISTRACTORS = 'SET_QUESTION_DISTRACTORS';
@@ -37,6 +39,16 @@ export const requestQuestionCreation = (text) => ({
 
 export const createQuestion = (questionID) => ({
   type: CREATE_QUESTION,
+  questionID
+});
+
+export const requestQuestionDeletion = (text) => ({
+  type: REQUEST_QUESTION_DELETION,
+  text
+});
+
+export const deleteQuestion = (questionID) => ({
+  type: DELETE_QUESTION,
   questionID
 });
 

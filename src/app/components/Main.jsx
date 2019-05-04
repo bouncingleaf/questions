@@ -5,10 +5,11 @@ import { Route, Router } from 'react-router-dom';
 import { history } from '../store/history';
 import { store } from '../store';
 import { About } from './About';
+import { ConnectedAddQuestion } from './AddQuestion';
 import { ConnectedDashboard } from './Dashboard';
+import { ConnectedEditQuestion } from './EditQuestion';
 import { ConnectedLogin } from './Login';
 import { ConnectedNavigation } from './Navigation';
-import { ConnectedEditQuestion } from './EditQuestion';
 import { ConnectedDeleteQuestion } from './DeleteQuestion';
 
 const RouteGuard = Component => ({match}) =>
@@ -28,23 +29,28 @@ export const Main = () => (
         />
         <Route
           exact
+          path="/about"
+          render={RouteGuard(About)}
+        />
+        <Route
+          exact
+          path="/add"
+          render={RouteGuard(ConnectedAddQuestion)}
+        />
+        <Route
+          exact
           path="/dashboard"
           render={RouteGuard(ConnectedDashboard)}
         />
         <Route
           exact
-          path="/question/:id"
-          render={RouteGuard(ConnectedEditQuestion)}
-        />
-        <Route
-          exact
-          path="/delete/:id"
+          path="/confirmDelete/:id"
           render={RouteGuard(ConnectedDeleteQuestion)}
         />
         <Route
           exact
-          path="/about"
-          render={RouteGuard(About)}
+          path="/edit/:id"
+          render={RouteGuard(ConnectedEditQuestion)}
         />
       </div>
     </Provider>

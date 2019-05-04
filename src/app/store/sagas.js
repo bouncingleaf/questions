@@ -23,6 +23,20 @@ export function* questionCreationSaga(){
   }
 }
 
+export function* questionDeletionSaga(){
+  while (true) {
+    // Get the question id:
+    const {questionID} = yield take(mutations.REQUEST_QUESTION_DELETION);
+    // Actually delete the question:
+    yield put(mutations.deleteQuestion(questionID));
+    const {res} = yield axios.post(url + `/delete`,{
+      question: {
+        id: questionID,
+      }
+    });
+  }
+}
+
 export function* questionModificationSaga(){
   while (true) {
     const question = yield take([

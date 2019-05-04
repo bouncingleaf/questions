@@ -33,12 +33,12 @@ export const QuestionList = ({questions}) => (
                 </div>
               </td>
               <td>
-                <Link to={`/question/${question.id}`}>
+                <Link to={`/Edit/${question.id}`}>
                   <button className="btn btn-sm btn-primary">
                     Edit
                   </button>
                 </Link>
-                <Link to={`/delete/${question.id}`}>
+                <Link to={`/confirmDelete/${question.id}`}>
                   <button className="btn btn-sm btn-danger">
                       Delete
                   </button>
