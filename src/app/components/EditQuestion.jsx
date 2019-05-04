@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as mutations from '../store/mutations';
 
-const QuestionDetail = ({
+const EditQuestion = ({
   question,
   setQuestionName,
   setQuestionAnswer,
@@ -13,41 +13,45 @@ const QuestionDetail = ({
     <h3>
       Edit Question
     </h3>
-    <form className="card p-3">
-      <div>
-        <label className="col-sm-12 col-md-3 mt-3" htmlFor="questionName">Question</label>
-        <input className="col-sm-12 col-md-9" 
+    <form>
+      <div className="form-group">
+        <label htmlFor="questionName">Question</label>
+        <input
           id="questionName"
           onChange={setQuestionName}
           value={question.question} 
-          className="form=control"/>
+          className="form=control" />
       </div>
-      <div>
-        <label className="col-sm-12 col-md-3 mt-3" htmlFor="questionAnswer">Correct answer</label>
-        <input className="col-sm-12 col-md-9"
+      <div className="form-group">
+        <label htmlFor="questionAnswer">Correct answer</label>
+        <input
           id="questionAnswer"
           onChange={setQuestionAnswer}
           value={question.answer} 
-          className="form=control"/>
+          className="form=control" />
       </div>
-      <div>
-        <label className="col-sm-12 col-md-3 mt-3" htmlFor="questionDistractors">Distractors</label>
+      <div className="form-group">
+        <label>Distractors</label>
         {question.distractors.map((distractor, index) => (
-          <input className="col-sm-12 col-md-9" 
+          <input
             id={"distractor" + index}
             onChange={setQuestionDistractor}
             value={distractor}
             key={distractor}
-            className="form-control"/>
+            className="form-control" />
         ))}
       </div>
       <div className="mt-3">
-        <Link className="btn btn-primary btn-sm" to="/dashboard">
+        <Link to="/dashboard">
+          <button className="btn btn-primary btn-sm">
             Back to list of questions
+          </button>
         </Link>
       </div>
       <div className="mt-3">
-        <button className="btn btn-danger btn-sm">Delete question?</button>
+        <button className="btn btn-danger btn-sm">
+          Delete question?
+        </button>
       </div>
     </form>
   </div>
@@ -79,4 +83,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-export const ConnectedQuestionDetail = connect(mapStateToProps, mapDispatchToProps) (QuestionDetail);
+export const ConnectedEditQuestion = connect(mapStateToProps, mapDispatchToProps) (EditQuestion);

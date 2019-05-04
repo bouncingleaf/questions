@@ -9,35 +9,45 @@ export const QuestionList = ({questions}) => (
       All Questions
     </h3>
     <div>
-      {questions.map(question => (
-        <div className="card mt-2 p-2" key={question.id}>
-
-          <div className="col-sm-8 col-md-6">
-            <div>{question.question}</div>
-            <div>Correct answer: {question.answer}</div>
-            <div>
-              Distractors:
-              <ul>
-                {question.distractors.map(distractor => (
-                  <li key={distractor}>{distractor}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="col-sm-4 col-md-6">
-            <Link to={`/question/${question.id}`}
-              className="btn btn-sm btn-primary">
-                Edit
-            </Link>
-            <Link to={`/delete/${question.id}`}
-              className="btn btn-sm btn-danger">
-                Delete
-            </Link>
-          </div>
-
-        </div>
-      ))}
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Distractors</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {questions.map(question => (
+            <tr key={question.id}>
+              <td>{question.question}</td>
+              <td>{question.answer}</td>
+              <td>
+                <div>
+                  {question.distractors.map(distractor => (
+                    <div key={distractor}>
+                      {distractor}
+                    </div>
+                  ))}
+                </div>
+              </td>
+              <td>
+                <Link to={`/question/${question.id}`}>
+                  <button className="btn btn-sm btn-primary">
+                    Edit
+                  </button>
+                </Link>
+                <Link to={`/delete/${question.id}`}>
+                  <button className="btn btn-sm btn-danger">
+                      Delete
+                  </button>
+                </Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </div>
 )

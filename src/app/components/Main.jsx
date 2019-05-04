@@ -8,7 +8,7 @@ import { About } from './About';
 import { ConnectedDashboard } from './Dashboard';
 import { ConnectedLogin } from './Login';
 import { ConnectedNavigation } from './Navigation';
-import { ConnectedQuestionDetail } from './QuestionDetail';
+import { ConnectedEditQuestion } from './EditQuestion';
 import { ConnectedDeleteQuestion } from './DeleteQuestion';
 
 const RouteGuard = Component => ({match}) =>
@@ -34,7 +34,7 @@ export const Main = () => (
         <Route
           exact
           path="/question/:id"
-          render={RouteGuard(ConnectedQuestionDetail)}
+          render={RouteGuard(ConnectedEditQuestion)}
         />
         <Route
           exact

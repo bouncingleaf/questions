@@ -3,15 +3,29 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 const DeleteQuestion = ({id, question}) => (
-  <div>
+  <div className="card p-2 m-2 col-sm-12 col-md-8">
     <div>
-      Delete this question?
-      <div>
-        {question.question}
-      </div>
+      <h3>
+        Delete this question?
+      </h3>
+      <ul className="list-group card p-2 m-2">
+        <li className="list-group-item">
+          Question: {question.question}
+        </li>
+        <li className="list-group-item">
+          Correct Answer: {question.answer}
+        </li>
+        <li className="list-group-item">
+          Distractors: {question.distractors.join(',')}
+        </li>
+      </ul>
     </div>
-        <Link to={`/question/${id}`} className="nav-link">Cancel</Link>
-        <Link to="/add" className="nav-link">Delete it</Link>
+        <Link to={`/question/${id}`}>
+          <button className="btn btn-sm btn-primary mt-2">Cancel</button>
+        </Link>
+        <Link to={`/delete/${id}`}>
+          <button className="btn btn-sm btn-danger mt-2">Delete it</button>
+        </Link>
   </div>
 )
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const About = () => (
-  <div>
+  <div className="card p-2 m-2">
     <h3>
       About the questions application
     </h3>
